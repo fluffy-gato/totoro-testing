@@ -80,7 +80,7 @@ else
   	arch-chroot /mnt passwd $USER
    	mkdir /mnt/home/$USER
 	arch-chroot /mnt chown -R $USER:$USER /home/$USER
- 	arch-chroot /mnt usermod -a -G wheel $USER
+ 	arch-chroot /mnt usermod -a -G wheel alex
   	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/sudoers
    	cat sudoers > /mnt/etc/sudoers
    	echo "DONE!"
@@ -147,7 +147,7 @@ else
     if [ $VER == "plasma" ]
 	then
      	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/plasma-packages.txt
-      	mv gnome-packages.txt /mnt/packages.txt
+      	mv plasma-packages.txt /mnt/packages.txt
       	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/issue
        	mv issue /mnt/etc/issue
 	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/os-release

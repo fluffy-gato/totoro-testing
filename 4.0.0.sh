@@ -2,9 +2,9 @@ clear
 echo "Installing Totoro Linux Aurora 08.2024"
 sleep 2
 clear
-echo "WARNING: Choosing the wrong disk may cause data loss!"
 lsblk
-echo "What is your disk (/dev/XXX)?"
+echo "WARNING: Choosing the wrong disk may cause data loss!"
+echo "What is your disk (/dev/xxx)?"
 read DISK
 if [[ $string =~ "nvme" ]]; then
 export ROOTTOTORO=${DISK}p2
@@ -94,7 +94,7 @@ else
        	mv issue /mnt/etc/issue
 	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/os-release
  	mv os-release /mnt/etc/os-release
-      	arch-chroot /mnt pacman -S - < /mnt/packages.txt --noconfirm
+      	arch-chroot /mnt pacman -Sy gdm gnome gnome-extras kitty firefox networkmanager --noconfirm
        	echo "DONE!"
 	fi
  	if [ $VER == "suckless" ]
@@ -141,7 +141,7 @@ else
        	mv issue /mnt/etc/issue
 	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/os-release
  	mv os-release /mnt/etc/os-release
-      	arch-chroot /mnt pacman -S - < /mnt/packages.txt --noconfirm
+      	arch-chroot /mnt pacman -Sy xorg xfce4 kitty firefox networkmanager sddm --noconfirm
      	echo "DONE!"
 	fi
     if [ $VER == "plasma" ]
@@ -152,7 +152,7 @@ else
        	mv issue /mnt/etc/issue
 	wget https://raw.githubusercontent.com/trurune/totoro-linux/master/os-release
  	mv os-release /mnt/etc/os-release
-      	arch-chroot /mnt pacman -S - < /mnt/packages.txt --noconfirm
+      	arch-chroot /mnt pacman -Sy xorg plasma-desktop sddm firefox kitty networkmanager --noconfirm
        	echo "DONE!"
 	fi
  	echo "EFI STUB SETUP"
